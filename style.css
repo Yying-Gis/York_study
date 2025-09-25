@@ -1,0 +1,261 @@
+html, body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 全螢幕高度 */
+  background: #f8f9fa;
+}
+
+
+.info.legend {
+  background: white;
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.info.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+.legend-toggle {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.map-legend{
+  /*position: fixed;*/
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border: 1px solid grey;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+#kpi-panel {
+  flex: 0 1 20%; 
+  display: flex;
+  /* flex-wrap: wrap; /* 允許換行 */
+  flex-direction: column; /* 垂直排列標題和卡片 */
+  gap: 6px; /* 卡片之間的間隔 */
+  background: #f8f8f8;
+  padding: 5px;
+}
+
+.kpi-row {
+  display: flex;
+  flex-wrap: wrap; /* 允許換行 */
+  justify-content: space-between; /* 卡片均勻分佈 */
+  gap: 6px; /* 卡片之間的間距 */
+}
+
+.kpi-card {
+  flex: 1 1 calc(100% / 10 - 12px); /* 每行最多 10 張卡片，根據容器寬度平均分配 */
+  min-width: 100px; /* 設置卡片最小寬度，保證內容可讀性 */
+  max-width: calc(100% / 5 - 12px); /* 每行最少 5 張卡片，避免卡片過大 */
+  background: black;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 10px 5px;
+  color: whitesmoke;
+}
+
+/* 使標題與卡片一致 */
+#kpi-title {
+  width: 100%; /* 確保標題寬度一致 */
+  font-size: 30px; /* 調整大小 */
+  font-weight: bold;
+  color: #333;
+  background: white;
+  border-radius: 6px;
+  text-align: center; /* 置中 */
+  padding: 5px;
+}
+
+.kpi-card .label {
+  font-size: 0.85em;
+  color: whitesmoke;
+}
+
+.kpi-card .value {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: whitesmoke;
+  margin-top: 2px;
+}
+
+#bottom-panel {
+  flex: 1; /* 剩下 80% 高度 */
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  overflow: hidden;
+}
+
+#left-panel {
+  flex: 0 0 20%;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  overflow-y: auto; /* 有很多圖時出現 scrollbar */
+  padding: 5px;
+  gap: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.pie-panel img,
+#additional-pie-container img {
+  display: block;
+  width: 100%;          /* 縮放到 panel 寬度 */
+  height: auto;         /* ✅ 保持比例 */
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: contain;  /* 保持等比，不裁切 */
+  cursor: pointer;      /* 提示可點擊 */
+  pointer-events: auto; /* ✅ 確保 JS 點擊可觸發 */
+}
+#additional-pie-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#map-panel {
+  flex: 0 0 60%;
+  position: relative;
+  background: #e0e0e0;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+#map {
+  height: 100%;
+  border-radius: 10px;
+}
+
+#toggle-legend {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+/*
+#toggle-legend {
+  display: none; /* 預設隱藏 
+  position: absolute; /* 絕對定位 
+  bottom: 10px; /* 距離底部 10px 
+  left: 10px; /* 距離左側 10px 
+  z-index: 10; /* 確保按鈕在其他元素上層 
+}*/
+
+#right-panel {
+  flex: 0 0 20%;
+  min-width: 180px;
+  max-width: 350px;
+  background: #fafafa;
+  margin: 10px 0 10px 0;
+  border-radius: 10px;
+}
+
+
+@media (max-width: 1024px) {
+  .kpi-card {
+    flex: 1 1 calc(20% - 12px); /* 每行顯示 4 張卡片 */
+    min-width: 100px; /* 確保卡片不會過窄 */
+  }
+}
+@media (max-width: 768px) {
+  .kpi-card {
+    flex: 1 1 calc(33.33% - 12px); /* 每行顯示 3 張卡片 */
+    min-width: 100px; /* 確保卡片不會過窄 */
+  }
+}
+
+/*smart phone*/
+@media (max-width: 600px) {
+  #kpi-panel {
+    /*display: flex;*/
+    flex-direction: column;
+    /*align-items: stretch;*/
+  }
+  #kpi-title {
+    width: 100%;
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    padding: 14px 8px;
+  }
+
+  .kpi-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .kpi-card {
+    min-width: 90vw;     /* 每張卡片寬度接近螢幕寬度 */
+    max-width: 100%;
+    /*flex-direction: column;*/
+    flex: none;
+  }
+  #bottom-panel {
+      order: 1; /* 確保底部面板在 kpi-card 之後顯示 */
+      width: 100%; /* 確保寬度100% */
+      flex-direction: column;
+    }
+  #map-panel {
+    flex: 1 1 auto;   /* 允許撐滿剩餘空間 */
+    width: 100%;      /* 寬度100% */
+    height: 70vh;     /* 或者直接指定高度，例如 70% viewport */
+  }
+  .folium-map {
+    height: 100%; 
+  }
+  #legend, #map-legend {
+    display: block; /* hide legend 和 MAP_LEGEND */
+  }
+  #toggle-legend {
+    display: block; /* 顯示切換按鈕 */
+    margin: 10px auto; /* 中心對齊 */
+  }
+}
