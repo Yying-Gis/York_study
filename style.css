@@ -7,7 +7,7 @@ html, body {
   background: #f8f9fa;
 }
 
-
+/*
 .info.legend {
   background: white;
   padding: 6px 8px;
@@ -27,6 +27,7 @@ html, body {
   font-weight: bold;
   margin-bottom: 4px;
 }
+*/
 
 .map-legend{
   /*position: fixed;*/
@@ -170,25 +171,10 @@ html, body {
   border-radius: 10px;
 }
 
-#toggle-legend {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+#toggle-legend,
+#toggle-layer-control {
+  display: none;
 }
-/*
-#toggle-legend {
-  display: none; /* 預設隱藏 
-  position: absolute; /* 絕對定位 
-  bottom: 10px; /* 距離底部 10px 
-  left: 10px; /* 距離左側 10px 
-  z-index: 10; /* 確保按鈕在其他元素上層 
-}*/
 
 #right-panel {
   flex: 0 0 20%;
@@ -238,24 +224,35 @@ html, body {
     /*flex-direction: column;*/
     flex: none;
   }
-  #bottom-panel {
-      order: 1; /* 確保底部面板在 kpi-card 之後顯示 */
-      width: 100%; /* 確保寬度100% */
-      flex-direction: column;
-    }
+   #bottom-panel {
+    order: 1;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  #left-panel, #map-panel, #right-panel {
+  flex: none;           /* 取消原本 flex 分配比例 */
+  width: 90%;           /* 保留一點左右 margin */
+  margin: 0 auto 10px;  /* 置中 + 下方留空間 */
+    border-right: none;   /* 移除左右分隔線 */
+  }
   #map-panel {
-    flex: 1 1 auto;   /* 允許撐滿剩餘空間 */
-    width: 100%;      /* 寬度100% */
-    height: 70vh;     /* 或者直接指定高度，例如 70% viewport */
+    margin: 10px auto;    /* MAP 保留 margin */
+    height: 60vh;         /* 手機上不要太高，避免超出螢幕 */
   }
-  .folium-map {
-    height: 100%; 
-  }
-  #legend, #map-legend {
-    display: block; /* hide legend 和 MAP_LEGEND */
-  }
-  #toggle-legend {
-    display: block; /* 顯示切換按鈕 */
-    margin: 10px auto; /* 中心對齊 */
-  }
+  #toggle-legend,
+    #toggle-layer-control {
+      display: block;
+      margin: 10px auto;
+      padding: 8px 14px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      text-align: center;
+    }
+
 }
