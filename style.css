@@ -235,7 +235,7 @@ html, body {
   flex: none;           /* 取消原本 flex 分配比例 */
   width: 90%;           /* 保留一點左右 margin */
   margin: 0 auto 10px;  /* 置中 + 下方留空間 */
-    border-right: none;   /* 移除左右分隔線 */
+  border-right: none;   /* 移除左右分隔線 */
   }
   #map-panel {
     margin: 10px auto;    /* MAP 保留 margin */
