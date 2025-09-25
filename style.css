@@ -224,7 +224,7 @@ html, body {
     /*flex-direction: column;*/
     flex: none;
   }
-   #bottom-panel {
+  #bottom-panel {
     order: 1;
     width: 100%;
     flex-direction: column;
@@ -241,8 +241,7 @@ html, body {
     margin: 10px auto;    /* MAP 保留 margin */
     height: 60vh;         /* 手機上不要太高，避免超出螢幕 */
   }
-  #toggle-legend,
-    #toggle-layer-control {
+  #toggle-legend,#toggle-layer-control {
       display: block;
       margin: 10px auto;
       padding: 8px 14px;
