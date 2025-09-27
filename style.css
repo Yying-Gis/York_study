@@ -3,34 +3,11 @@ html, body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* 全螢幕高度 */
+  height: 100vh; /* fullscreen */
   background: #f8f9fa;
 }
 
-/*
-.info.legend {
-  background: white;
-  padding: 6px 8px;
-  font: 14px/16px Arial, Helvetica, sans-serif;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
-}
-.info.legend i {
-  width: 18px;
-  height: 18px;
-  float: left;
-  margin-right: 8px;
-  opacity: 0.7;
-}
-.legend-toggle {
-  cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-*/
-
 .map-legend{
-  /*position: fixed;*/
   bottom: 10px;
   left: 10px;
   z-index: 1000;
@@ -43,24 +20,23 @@ html, body {
 #kpi-panel {
   flex: 0 1 20%; 
   display: flex;
-  /* flex-wrap: wrap; /* 允許換行 */
-  flex-direction: column; /* 垂直排列標題和卡片 */
-  gap: 6px; /* 卡片之間的間隔 */
+  flex-direction: column; /* horizontal */
+  gap: 6px; /* between the card */
   background: #f8f8f8;
   padding: 5px;
 }
 
 .kpi-row {
   display: flex;
-  flex-wrap: wrap; /* 允許換行 */
-  justify-content: space-between; /* 卡片均勻分佈 */
-  gap: 6px; /* 卡片之間的間距 */
+  flex-wrap: wrap; /* accept wrap */
+  justify-content: space-between; /* Card even */
+  gap: 6px; /* between card */
 }
 
 .kpi-card {
-  flex: 1 1 calc(100% / 10 - 12px); /* 每行最多 10 張卡片，根據容器寬度平均分配 */
-  min-width: 100px; /* 設置卡片最小寬度，保證內容可讀性 */
-  max-width: calc(100% / 5 - 12px); /* 每行最少 5 張卡片，避免卡片過大 */
+  flex: 1 1 calc(100% / 10 - 12px); /*card placed evenly, normal 10 card?  */
+  min-width: 100px; /* minimum card width to ensure readable */
+  max-width: calc(100% / 5 - 12px); /* card placed evenly, max 5 card? */
   background: black;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -69,15 +45,15 @@ html, body {
   color: whitesmoke;
 }
 
-/* 使標題與卡片一致 */
+/* title and card are same */
 #kpi-title {
-  width: 100%; /* 確保標題寬度一致 */
-  font-size: 30px; /* 調整大小 */
+  width: 100%; /*same width */
+  font-size: 30px; /* adjust font size */
   font-weight: bold;
   color: #333;
   background: white;
   border-radius: 6px;
-  text-align: center; /* 置中 */
+  text-align: center; /* align center */
   padding: 5px;
 }
 
@@ -94,7 +70,7 @@ html, body {
 }
 
 #bottom-panel {
-  flex: 1; /* 剩下 80% 高度 */
+  flex: 1; /* 80% height */
   display: flex;
   flex-direction: row;
   background: #fff;
@@ -106,7 +82,7 @@ html, body {
   display: flex;
   flex-direction: column;
   background: #fafafa;
-  overflow-y: auto; /* 有很多圖時出現 scrollbar */
+  overflow-y: auto; /*add scrollbar if need */
   padding: 5px;
   gap: 10px;
   border-right: 1px solid #ddd;
@@ -115,13 +91,13 @@ html, body {
 .pie-panel img,
 #additional-pie-container img {
   display: block;
-  width: 100%;          /* 縮放到 panel 寬度 */
-  height: auto;         /* ✅ 保持比例 */
+  width: 100%;          /* scale down to screen width */
+  height: auto;         /* keep scale */
   max-width: 100%;
   border-radius: 8px;
-  object-fit: contain;  /* 保持等比，不裁切 */
-  cursor: pointer;      /* 提示可點擊 */
-  pointer-events: auto; /* ✅ 確保 JS 點擊可觸發 */
+  object-fit: contain;  /* same size */
+  cursor: pointer;      /* tips for click */
+  pointer-events: auto; /* ensure the event */
 }
 #additional-pie-container {
   display: flex;
@@ -183,24 +159,40 @@ html, body {
   background: #fafafa;
   margin: 10px 0 10px 0;
   border-radius: 10px;
+  display: flex; 
+  flex-direction: column;
 }
 
+#right-panel h2 { 
+  margin-top: 0; }
+    
+.result-box {
+  margin-top: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
 
 @media (max-width: 1024px) {
   .kpi-card {
-    flex: 1 1 calc(20% - 12px); /* 每行顯示 4 張卡片 */
-    min-width: 100px; /* 確保卡片不會過窄 */
+    flex: 1 1 calc(20% - 12px); /* 4 card in each row */
+    min-width: 100px; /* not too narrow */
   }
 }
 @media (max-width: 768px) {
   .kpi-card {
-    flex: 1 1 calc(33.33% - 12px); /* 每行顯示 3 張卡片 */
-    min-width: 100px; /* 確保卡片不會過窄 */
+    flex: 1 1 calc(33.33% - 12px); /* 3 card in each row */
+    min-width: 100px; /*  not too narrow */
   }
 }
 
 /*smart phone*/
 @media (max-width: 600px) {
+   html, body {
+    display: block;  /* cancel flex to become a normal ordering  */
+    height: auto;    /* no high requirement  */
+  }
   #kpi-panel {
     /*display: flex;*/
     flex-direction: column;
@@ -219,39 +211,92 @@ html, body {
     gap: 10px;
   }
   .kpi-card {
-    min-width: 90vw;     /* 每張卡片寬度接近螢幕寬度 */
+    min-width: 90vw;     /* width as screen */
     max-width: 100%;
     /*flex-direction: column;*/
     flex: none;
   }
+
   #bottom-panel {
-    order: 1;
-    width: 100%;
+    order: unset;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     gap: 10px;
   }
-  #left-panel, #map-panel, #right-panel {
-  flex: none;           /* 取消原本 flex 分配比例 */
-  width: 90%;           /* 保留一點左右 margin */
-  margin: 0 auto 10px;  /* 置中 + 下方留空間 */
-  border-right: none;   /* 移除左右分隔線 */
+  #left-panel {
+    flex: none;        
+    width: 90%;
+    margin: 0 auto 10px;
+    border-right: none;
+    overflow-y: visible; /*no need scroll bar*/
   }
   #map-panel {
-    margin: 10px auto;    /* MAP 保留 margin */
-    height: 60vh;         /* 手機上不要太高，避免超出螢幕 */
+  flex: none;           
+  width: 90%;           
+  margin: 5px;  
+  border-right: none;   
+  height: 100vh;
+  overflow-y: visible;
+  }
+  .map-legend {
+    position: relative; 
+    display: none; 
+    bottom: 50px;
+    right: 1px;
+    z-index: 1200;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transform: scale(0.65);  
+  }
+
+  .legend-age,
+  #legend_total  {
+  transform: scale(0.65);   
+  transform-origin: top right; 
+  }
+
+  .leaflet-control-layers {
+    display: none; /* default hidden, until JS toggle to show */
+    position: absolute  !important;
+    bottom: 1px  !important;
+    right: 1px  !important;
+    z-index: 2000;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transform: scale(0.65);   
+
   }
   #toggle-legend,#toggle-layer-control {
+      position: absolute;
+      z-index: 3000;
       display: block;
-      margin: 10px auto;
-      padding: 8px 14px;
+      margin: 5px auto;
+      padding: 4px 10px;
       background: white;
       border: 1px solid #ccc;
       border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      font-size: 14px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      font-size: 12px;
       text-align: center;
     }
+  #toggle-legend {
+    bottom: 80px;
+  } 
+  #toggle-layer-control{
+    bottom: 50px;
+  }
 
+  #right-panel {
+  flex: none;           /*cancel original flex  */
+  width: 90%;           /* kepp margin */
+  margin: 5px;  
+  border-right: none;   /* no need to seperate left and right */
+  height: 120vh;
+  overflow-y: visible;
+  }
 }

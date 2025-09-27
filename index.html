@@ -204,13 +204,18 @@
       <!--mid MAP -->
       <div id="map-panel">
         <div class="folium-map" id="map_200190eb016ecd3aa51d9be8eac175ef"></div>
-        <button id="toggle-legend">Show layer control </button>
+        <button id="toggle-legend">Show legend </button>
+        <button id="toggle-layer-control">Show layer control </button>
       </div>
       <!-- right : calculate driving time  -->
       <div id="right-panel">
-        <h3>Drive Time</h3>
-        <div id="drive-results">請點擊設施</div>
+        <h2>Travel Time</h2>
+        <button id="travel-mode-btn">Enable Travel Time Mode</button>
+        <div class="result-box" id="origin-info">Origin: (not set)</div>
+        <div class="result-box" id="destination-info">Click a facility point</div>
+        <div class="result-box" id="travel-info"></div>
       </div>
+
 
       <div id="pieModal" class="modal">
         <span class="close">&times;</span>
