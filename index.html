@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css">
+
     <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style>
@@ -211,9 +214,10 @@
       <div id="right-panel">
         <h2>Travel Time</h2>
         <button id="travel-mode-btn">Enable Travel Time Mode</button>
-        <div class="result-box" id="origin-info">Origin: (not set)</div>
+        <div class="result-box" id="origin-info">Origin: York Railway Station (default)</div>
         <div class="result-box" id="destination-info">Click a facility point</div>
         <div class="result-box" id="travel-info"></div>
+        <button id="clear-routes-btn">Clear Routes</button>
       </div>
 
 
