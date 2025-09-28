@@ -8,6 +8,7 @@ html, body {
 }
 
 .map-legend{
+  display: none; 
   bottom: 10px;
   left: 10px;
   z-index: 1000;
@@ -53,13 +54,14 @@ html, body {
   color: #333;
   background: white;
   border-radius: 6px;
-  text-align: center; /* align center */
   padding: 5px;
+  text-align: center;
 }
 
 .kpi-card .label {
   font-size: 0.85em;
   color: whitesmoke;
+  text-align: center; /* align center */
 }
 
 .kpi-card .value {
@@ -67,6 +69,7 @@ html, body {
   font-weight: bold;
   color: whitesmoke;
   margin-top: 2px;
+  text-align: center; /* align center */
 }
 
 #bottom-panel {
@@ -147,6 +150,7 @@ html, body {
   border-radius: 10px;
 }
 .leaflet-control-layers{
+    display: none;
     bottom: 30px;
     right: 10px;
 }
@@ -250,6 +254,7 @@ html, body {
     margin: 0 0 10px 0;
     font-size: 22px;
     padding: 14px 8px;
+    text-align: center;
   }
 
   .kpi-row {
@@ -262,6 +267,19 @@ html, body {
     max-width: 100%;
     /*flex-direction: column;*/
     flex: none;
+  }
+  .kpi-card .label {
+  font-size: 0.85em;
+  color: whitesmoke;
+  text-align: center; /* align center */
+}
+
+  .kpi-card .value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: whitesmoke;
+    margin-top: 2px;
+    text-align: center; /* align center */
   }
 
   #bottom-panel {
@@ -290,36 +308,36 @@ html, body {
   .map-legend {
     position: relative; 
     display: none; 
-    bottom: 50px;
-    right: 1px;
+    bottom: 15px;
+    margin-left: 0px  !important;
     z-index: 1200;
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transform: scale(0.65);  
+    transform: scale(0.8);  
   }
 
   .legend-age,
   #legend_total  {
   transform: scale(0.65);   
   transform-origin: top right; 
+  margin-right: 0px  !important;
   }
 
   .leaflet-control-layers {
     display: none; /* default hidden, until JS toggle to show */
     position: absolute  !important;
-    bottom: 1px  !important;
-    right: 1px  !important;
+    bottom: 45px  !important;
+    margin-right: 0px  !important;
     z-index: 2000;
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transform: scale(0.65);   
-
+    transform: scale(0.85);
   }
   #toggle-legend,#toggle-layer-control {
       position: absolute;
-      z-index: 3000;
+      z-index: 1000;
       display: block;
       margin: 5px auto;
       padding: 4px 10px;
@@ -332,10 +350,12 @@ html, body {
       text-align: center;
     }
   #toggle-legend {
-    bottom: 80px;
+    bottom: 35px;
+    left: 10px;
   } 
   #toggle-layer-control{
-    bottom: 50px;
+    bottom: 35px;
+    right: 10px;
   }
 
   #right-panel {
