@@ -31,7 +31,7 @@ The work is for **educational purposes only** and **not for commercial use**.
 
 ## Tech Stack
 - **Python** (GeoPandas, Folium, OSMnx, Pandas) for geospatial data processing in Google Colab  
-- **Leaflet.js** for interactive web mapping  
+- **Leaflet.js** for interactive web mapping  (* openstreetmap)
 - **HTML / JavaScript / CSS** for dashboard interface and KPI-style cards  
 - **GeoJSON** for geospatial data storage and visualization  
 - **Flask (app.py)** to serve the web application and API endpoints  
