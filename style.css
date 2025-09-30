@@ -149,6 +149,10 @@ html, body {
   height: 100%;
   border-radius: 10px;
 }
+#leaflet-interactive{
+  fill-opacity:0.1;
+}
+
 .leaflet-control-layers{
     display: none;
     bottom: 30px;
